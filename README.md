@@ -15,3 +15,22 @@ Os benefícios do jitter na programação, especialmente ao lidar com requisiç�
 - **Resiliência contra falhas**: Introduzir jitter nas tentativas de reconexão ou retentativas após falhas em requisições pode melhorar a resiliência do sistema. Isso evita que todas as tentativas de reconexão ocorram simultaneamente, o que poderia sobrecarregar o servidor ou a infraestrutura.
 
 Ao implementar jitter em lógicas de retentativa ou ao agendar requisições, é importante ajustar os parâmetros de jitter com base nas características específicas do sistema e nos requisitos de desempenho. O objetivo é equilibrar a distribuição uniforme das requisições com a necessidade de manter uma lógica de tempo razoável para as operações.
+
+
+#### Versão Golang
+
+```
+go1.22.0
+```
+
+#### Executar programa
+
+```
+go run cmd/main.go
+```
+
+#### Executar testes
+
+```
+go test ./...
+```

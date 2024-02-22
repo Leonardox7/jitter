@@ -2,7 +2,7 @@ package request
 
 import (
 	"fmt"
-	"math/rand"
+	"math/rand/v2"
 	"net/http"
 	"time"
 )
@@ -15,9 +15,7 @@ func Get(url string, retry int, sleep time.Duration, timeout time.Duration) (*ht
 
 	if (err != nil || is5xxServerError(res.StatusCode)) && retry > 0 {
 
-		r := rand.New(rand.NewSource(time.Now().UnixNano()))
-
-		randSleep := time.Duration(int64(r.Intn(int(sleep)*retry) + int(1*time.Second)))
+		randSleep := time.Duration(rand.IntN(int(sleep)*retry) + int(1*time.Second))
 
 		fmt.Printf("Url: %s - Retry: %d - Sleep seconds: %v\n", url, retry, randSleep)
 
