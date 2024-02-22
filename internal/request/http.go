@@ -17,11 +17,11 @@ func Get(url string, retry int, sleep time.Duration, timeout time.Duration) (*ht
 
 		r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
-		sleep = time.Duration(int64(r.Intn(int(sleep)*retry) + int(1*time.Second)))
+		randSleep := time.Duration(int64(r.Intn(int(sleep)*retry) + int(1*time.Second)))
 
-		fmt.Printf("Url: %s - Retry: %d - Sleep seconds: %v\n", url, retry, sleep)
+		fmt.Printf("Url: %s - Retry: %d - Sleep seconds: %v\n", url, retry, randSleep)
 
-		time.Sleep(sleep)
+		time.Sleep(randSleep)
 
 		retry--
 
