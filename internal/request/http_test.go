@@ -14,7 +14,7 @@ func TestGet_should_return_error_timeout(t *testing.T) {
 	}
 }
 
-func TestGet_should_success(t *testing.T) {
+func TestGet_should_return_error_nil(t *testing.T) {
 	_, err := request.Get("https://www.google.com/robots.txt", 3, 1*time.Second, 2*time.Second)
 	if err != nil {
 		t.Errorf("got %v, wanted %v", err, nil)
